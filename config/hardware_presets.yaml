@@ -1,0 +1,26 @@
+# Nominal per-device hardware specs, keyed by HardwareType value.
+# Used as defaults when a GpuConfig field is left unset.
+#   compute_tflops   : dense BF16/FP16 matmul throughput (TFLOPS)
+#   memory_gb        : HBM capacity (GB)
+#   memory_bw_gbs    : HBM bandwidth (GB/s)
+#   interconnect_gbs : intra-node link bandwidth for TP/EP collectives (GB/s)
+# Headline numbers — override per-field in a run config to model a specific SKU
+# or measured efficiency. Add a new accelerator by adding a block here.
+
+ascend_910b:
+  compute_tflops: 376.0
+  memory_gb: 64.0
+  memory_bw_gbs: 1600.0
+  interconnect_gbs: 392.0    # HCCS
+
+h200:
+  compute_tflops: 989.0
+  memory_gb: 141.0
+  memory_bw_gbs: 4800.0
+  interconnect_gbs: 900.0    # NVLink 4
+
+b200:
+  compute_tflops: 2250.0
+  memory_gb: 192.0
+  memory_bw_gbs: 8000.0
+  interconnect_gbs: 1800.0   # NVLink 5

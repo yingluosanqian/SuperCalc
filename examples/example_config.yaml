@@ -1,0 +1,22 @@
+# Example SuperCalc run configuration.
+# Loaded by examples/compute_demo.py via Config.from_yaml().
+
+# Hardware: one of ascend_910b / h200 / b200.
+# Per-device specs default to the preset for the chosen hardware; uncomment to override.
+gpu:
+  hardware: h200
+  # compute_tflops: 989.0
+  # memory_gb: 141.0
+  # memory_bw_gbs: 4800.0
+  # interconnect_gbs: 900.0
+
+# Inference parallelism + request shape.
+infer:
+  tp: 8                  # tensor parallel
+  dp: 1                  # data parallel
+  ep: 1                  # expert parallel (MoE)
+  pp: 1                  # pipeline parallel
+  pd_disaggregation: false
+  batch_size: 32
+  isl: 2048              # input sequence length
+  osl: 512               # output sequence length
